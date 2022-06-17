@@ -12,4 +12,7 @@ public class Stock {
     public void setValume(int valume) {
         this.valume = valume;
     }
+
+    public Stock() {
+    }
 }

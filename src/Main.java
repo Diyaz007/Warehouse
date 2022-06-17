@@ -3,12 +3,16 @@ import java.util.Scanner;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
+        ArrayList<Stock> stocks = new ArrayList<>();
         Stock stock1 = new Stock(50);
         Stock stock2 = new Stock(50);
         Stock stock3 = new Stock(50);
-        ArrayList<Stock> stocks = new ArrayList<>();
+        stocks.add(0,stock1);
+        stocks.add(1,stock2);
+        stocks.add(2,stock3);
+        ArrayList<ProductBox> ShampooBox = new ArrayList<>();
+
 
 
         while (true) {
@@ -21,7 +25,7 @@ public class Main {
             System.out.print("Ввод:");
             mainMenuItem = scanner.nextInt();
             if (mainMenuItem == 1) {
-                workWithProducts();
+                workWithProducts(stocks);
             } else if (mainMenuItem == 2) {
                 workWithStorages();
             } else if (mainMenuItem == 0) {
@@ -35,7 +39,7 @@ public class Main {
         }
     }
 
-    private static void workWithProducts() {
+    private static void workWithProducts(ArrayList<Stock> stocks) {
         while (true) {
             int mainMenuItem;
             System.out.println("-------------------------------------------------------------");
@@ -51,7 +55,7 @@ public class Main {
             if (mainMenuItem == 0) {
                 break;
             } else if (mainMenuItem == 1) {
-                AddingGoodsToTheWarehouse();
+                AddingGoodsToTheWarehouse(stocks);
             } else if (mainMenuItem == 2) {
 
             }
@@ -73,7 +77,7 @@ public class Main {
         }
     }
 
-    public static void AddingGoodsToTheWarehouse() {
+    public static void AddingGoodsToTheWarehouse(ArrayList<Stock> stocks) {
         while (true) {
             int mainMenuItem;
             int mainMenuStock;
@@ -126,7 +130,7 @@ public class Main {
                 int soapWeight = scanner.nextInt();
                 SoapBox soapBox = new SoapBox("Мыло", soapName, 4, soapWeight);
                 if (mainMenuStock == 1) {
-                    Stock1.setValume(Stock1.getValume() - soapBox.getVolume());
+                    Stock2.setValume(Stock1.getValume() - soapBox.getVolume());
                 } else if (mainMenuStock == 2) {
                     Stock2.setValume(Stock2.getValume() - soapBox.getVolume());
                 } else if (mainMenuStock == 3) {
@@ -150,7 +154,7 @@ public class Main {
                 int drinkVolume = scanner.nextInt();
                 DrinksBox drinksBox = new DrinksBox("Напиток", drinkName, 5, drinkVolume);
                 if (mainMenuStock == 1) {
-                    Stock1.setValume(Stock1.getValume() - drinksBox.getVolume());
+                    Stock3.setValume(Stock1.getValume() - drinksBox.getVolume());
                 } else if (mainMenuStock == 2) {
                     Stock2.setValume(Stock2.getValume() - drinksBox.getVolume());
                 } else if (mainMenuStock == 3) {
