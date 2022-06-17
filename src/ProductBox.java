@@ -1,4 +1,4 @@
-public abstract class ProductBox {
+public abstract class ProductBox extends Stock {
     private String tape;
     private String name;
     private int volume;
