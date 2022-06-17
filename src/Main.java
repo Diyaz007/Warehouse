@@ -3,16 +3,8 @@ import java.util.Scanner;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) {
-        ArrayList<Stock> stocks = new ArrayList<>();
-        Stock stock1 = new Stock(50);
-        Stock stock2 = new Stock(50);
-        Stock stock3 = new Stock(50);
-        stocks.add(0,stock1);
-        stocks.add(1,stock2);
-        stocks.add(2,stock3);
-        ArrayList<ProductBox> ShampooBox = new ArrayList<>();
 
+    public static void main(String[] args) {
 
 
         while (true) {
@@ -25,7 +17,7 @@ public class Main {
             System.out.print("Ввод:");
             mainMenuItem = scanner.nextInt();
             if (mainMenuItem == 1) {
-                workWithProducts(stocks);
+                workWithProducts();
             } else if (mainMenuItem == 2) {
                 workWithStorages();
             } else if (mainMenuItem == 0) {
@@ -39,7 +31,7 @@ public class Main {
         }
     }
 
-    private static void workWithProducts(ArrayList<Stock> stocks) {
+    private static void workWithProducts() {
         while (true) {
             int mainMenuItem;
             System.out.println("-------------------------------------------------------------");
@@ -55,7 +47,7 @@ public class Main {
             if (mainMenuItem == 0) {
                 break;
             } else if (mainMenuItem == 1) {
-                AddingGoodsToTheWarehouse(stocks);
+                AddingGoodsToTheWarehouse();
             } else if (mainMenuItem == 2) {
 
             }
@@ -77,7 +69,14 @@ public class Main {
         }
     }
 
-    public static void AddingGoodsToTheWarehouse(ArrayList<Stock> stocks) {
+    public static void AddingGoodsToTheWarehouse() {
+        ArrayList<Stock> stocks = new ArrayList<>();
+        Stock stock1 = new Stock(50);
+        Stock stock2 = new Stock(50);
+        Stock stock3 = new Stock(50);
+        stocks.add(0, stock1);
+        stocks.add(1, stock2);
+        stocks.add(2, stock3);
         while (true) {
             int mainMenuItem;
             int mainMenuStock;
@@ -98,21 +97,21 @@ public class Main {
                 System.out.println("    1) Введите название Шампуня");
                 System.out.print("Ввод:");
                 String shampooName = scanner.next();
-                System.out.println("2) Введите объём Шампуня");
+                System.out.println("    2) Введите объём Шампуня");
                 System.out.print("Ввод:");
                 int shampooVolume = scanner.nextInt();
                 ShampooBox shampooBox = new ShampooBox("Шампунь", shampooName, 3, shampooVolume);
                 if (mainMenuStock == 1) {
-                    Stock1.setValume(Stock1.getValume() - shampooBox.getVolume());
+                    stock1.setValume(stock1.getValume() - shampooBox.getVolume());
                 } else if (mainMenuStock == 2) {
-                    Stock2.setValume(Stock2.getValume() - shampooBox.getVolume());
+                    stock2.setValume(stock2.getValume() - shampooBox.getVolume());
                 } else if (mainMenuStock == 3) {
-                    Stock3.setValume(Stock3.getValume() - shampooBox.getVolume());
+                    stock3.setValume(stock3.getValume() - shampooBox.getVolume());
                 }
                 System.out.println(shampooBox.toString());
-                System.out.println(Stock1.getValume());
-                System.out.println(Stock2.getValume());
-                System.out.println(Stock3.getValume());
+                System.out.println(stock1.getValume());
+                System.out.println(stock2.getValume());
+                System.out.println(stock3.getValume());
                 break;
             } else if (mainMenuItem == 2) {
                 System.out.println("Выберите склад для помещения товара");
@@ -130,11 +129,11 @@ public class Main {
                 int soapWeight = scanner.nextInt();
                 SoapBox soapBox = new SoapBox("Мыло", soapName, 4, soapWeight);
                 if (mainMenuStock == 1) {
-                    Stock2.setValume(Stock1.getValume() - soapBox.getVolume());
+                    stock1.setValume(stock1.getValume() - soapBox.getVolume());
                 } else if (mainMenuStock == 2) {
-                    Stock2.setValume(Stock2.getValume() - soapBox.getVolume());
+                    stock2.setValume(stock2.getValume() - soapBox.getVolume());
                 } else if (mainMenuStock == 3) {
-                    Stock3.setValume(Stock3.getValume() - soapBox.getVolume());
+                    stock3.setValume(stock3.getValume() - soapBox.getVolume());
                 }
                 System.out.println(soapBox.toString());
                 break;
@@ -154,11 +153,11 @@ public class Main {
                 int drinkVolume = scanner.nextInt();
                 DrinksBox drinksBox = new DrinksBox("Напиток", drinkName, 5, drinkVolume);
                 if (mainMenuStock == 1) {
-                    Stock3.setValume(Stock1.getValume() - drinksBox.getVolume());
+                    stock1.setValume(stock1.getValume() - drinksBox.getVolume());
                 } else if (mainMenuStock == 2) {
-                    Stock2.setValume(Stock2.getValume() - drinksBox.getVolume());
+                    stock2.setValume(stock2.getValume() - drinksBox.getVolume());
                 } else if (mainMenuStock == 3) {
-                    Stock3.setValume(Stock3.getValume() - drinksBox.getVolume());
+                    stock3.setValume(stock3.getValume() - drinksBox.getVolume());
                 }
                 System.out.println(drinksBox.toString());
                 break;
@@ -166,6 +165,7 @@ public class Main {
                 break;
             } else {
                 System.out.println("-------------------------------------------------------------");
+
             }
             System.out.println("Ошибка. Введите цифру из меню!!!");
         }

@@ -1,4 +1,4 @@
-public class Stock {
+public class Stock  {
     private int valume;
 
     public Stock(int valume) {
